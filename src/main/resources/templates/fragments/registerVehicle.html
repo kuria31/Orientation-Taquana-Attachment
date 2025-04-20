@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Register Vehicle</title>
+     <!-- Bootstrap -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
+
+</head>
+
+<body>
+     <div id="registerVehicle" th:fragment="registerVehicle" class="container my-5">
+          <!-- Display messages -->
+          <!-- <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div> -->
+          <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+
+          <div class="custom-container">
+               <h4 class="headings text-center mb-4">Register Vehicle</h4>
+
+               <form th:action="@{register_vehicle}" method="post">
+                    <div class="mb-3">
+                         <label for="plateNumber" class="form-label fw-semibold">Plate Number</label>
+                         <input type="text" class="form-control" name="plateNumber" id="plateNumber"
+                              placeholder="Enter plate number">
+                    </div>
+
+                    <div class="mb-3">
+                         <label for="capacity" class="form-label fw-semibold">Capacity</label>
+                         <input type="text" class="form-control" name="capacity" id="capacity"
+                              placeholder="Enter capacity">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Register Vehicle</button>
+               </form>
+          </div>
+     </div>
+
+     <!-- Bootstrap JS -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-qQ2iX+965DzO0rT7abK41J6gk2Y4e5p3p6x9e8z5e5J5k5J5k5J5k5J5k5J5k5J5k5J5"
+          crossorigin="anonymous"></script>
+</body>
+
+</html>

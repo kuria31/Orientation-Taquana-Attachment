@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Queues</title>
+     <link rel="stylesheet" href="styles.css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+
+<body>
+
+     <!-- header -->
+     <nav class="navbar bg-body-tertiary">
+          <div class="container-fluid">
+               <a class="navbar-brand" href="#">
+                    <img src="/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                    Vehicle Queue Management System
+               </a>
+          </div>
+     </nav>
+
+
+     <div class="toggleBtn">
+          <button id="ticketBtn" onclick="toggleSections('ticketSection', 'trackingSection')">Tickets
+          </button>
+          <button id="trackingBtn" onclick="toggleSections('trackingSection', 'ticketSection')">Tracking
+          </button>
+     </div>
+
+     <!-- Tracking and Ticket sections -->
+
+     <!-- Ticket component -->
+     <div id="ticketSection" style="display: block;"
+          th:include="~{fragments/ticketSection :: ticketSection}"></div>
+
+     <!--  Tracking section-->
+     <div id="trackingSection" style="display: none;" th:include="~{fragments/trackingSection :: trackingSection(${vehiclesInQueue}, ${vehiclesTravelling})}">
+     </div>
+
+
+
+     <script th:src="@{/index.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Travelling Vehicles</title>
+     <!-- Bootstrap -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
+     <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+     <div class="container mb-5">
+          <div th:fragment="travellingVehicles" class="custom-container">
+               <!-- Display messages -->
+               <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+
+               <h4 class="headings text-center mb-4">Vehicles in Travelling</h4>
+
+               <div th:each="vehicle : ${vehiclesTravelling}" class="mb-3">
+                    <div class="vehicle-card custom-container">
+                         <div class="d-flex align-items-center justify-content-between">
+                              <div>
+                                   <strong>Plate Number:</strong>
+                                   <p th:text="${vehicle.plateNumber}" class="mb-0">Plate number</p>
+                              </div>
+                              <img src="/logo.png" alt="car_logo" width="50px">
+                         </div>
+                         <button class="btn btn-link mt-2" style="color: #1abc9c;" onclick="togglePassengers(this)">See
+                              More</button>
+                         <div class="passenger-list mt-3" style="display: none;">
+                              <h5
+                                   style="font-family: 'Segoe UI', sans-serif; font-size: 1.3rem; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; color: #61dafb;">
+                                   Passengers
+                              </h5>
+
+                              <ul
+                                   style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 1rem;">
+                                   <li th:each="passanger : ${vehicle.passangers}"
+                                        style="background: #111; border: 1px solid #1f1f1f; border-radius: 10px; padding: 1rem; width: 250px;
+                                                  font-family: 'Segoe UI', sans-serif; box-shadow: 0 0 8px rgba(0, 255, 100, 0.05); color: #ddd;">
+
+                                        <div style="font-weight: bold; color: #1abc9c;">Name:
+                                             <span style="color: #ccc;" th:text="${passanger.name}">Passenger
+                                                  name</span>
+                                        </div>
+
+                                        <div style="margin-top: 0.5rem; color: #1abc9c;">Seat Number:
+                                             <span style="color: #ccc;" th:text="${passanger.seatNumber}">Seat
+                                                  number</span>
+                                        </div>
+
+                                        <div style="margin-top: 0.5rem; color: #1abc9c;">Arrival Time:
+                                             <span style="color: #ccc;" th:text="${passanger.arrivalTime}">Arrival Time</span>
+                                        </div>
+                                   </li>
+                              </ul>
+                         </div>
+
+                    </div>
+               </div>
+          </div>
+     </div>
+     <script th:src="/scripts.js"></script> <!-- Link to your JavaScript file -->
+</body>
+
+</html>

@@ -1,0 +1,243 @@
+body {
+     background-color: #121212;
+     color: #ecf0f1;
+     font-family: 'Roboto', sans-serif;
+}
+
+.sidebar {
+     background-color: #000000;
+     color: #ecf0f1;
+     border-right: 2px solid #34495e;
+     border-radius: 15px 0 0 15px;
+     transition: width 0.3s ease;
+     width: 280px;
+}
+
+.sidebar .nav-link {
+     color: #ffffff !important;
+     padding: 12px 20px;
+     margin-bottom: 10px;
+     border-radius: 8px;
+     transition: background-color 0.3s ease;
+     font-weight: 500;
+     width: 100%;
+     text-align: left;
+}
+
+.sidebar .nav-link:hover {
+     background-color: #1abc9c;
+     color: #121212 !important;
+}
+
+.sidebar .nav-link.active {
+     background-color: #1abc9c;
+     color: #121212 !important;
+}
+
+/* Vechicle display details */
+.card {
+     background: linear-gradient(145deg, #343a40, rgba(255, 255, 255, 0.1));
+     color: #fff;
+     border-radius: 15px;
+}
+
+.card-body {
+     padding: 2rem;
+}
+
+.card-title {
+     font-size: 1.8rem;
+     color: #1abc9c;
+}
+
+.btn {
+     border-radius: 25px;
+     font-weight: bold;
+}
+
+.btn-primary {
+     background-color: #1abc9c;
+     border-color: #1abc9c;
+}
+
+.btn-outline-light {
+     color: #ecf0f1;
+     border-color: #ecf0f1;
+}
+
+.btn-outline-light:hover {
+     background-color: #ecf0f1;
+     color: #121212;
+}
+
+.nav-item .material-symbols-outlined {
+     font-size: 1.5rem;
+}
+
+.sticky-top {
+     z-index: 100;
+}
+
+.flex-grow-1.p-4 {
+     background-color: #000000;
+     color: #ecf0f1;
+}
+
+.hide {
+     display: none;
+}
+
+.sidebar.collapsed {
+     width: 80px;
+}
+
+.custom-table {
+     border-radius: 10px;
+     overflow: hidden;
+}
+
+.custom-table td,
+.custom-table th {
+     padding: 15px;
+}
+
+.headings {
+     color: #0f9987;
+     font-weight: bolder;
+     font-size: xx-large;
+}
+
+.custom-heading {
+     font-size: 1.5rem;
+     font-weight: bold;
+     color: #61dafb;
+     text-transform: uppercase;
+     margin-bottom: 20px;
+}
+
+.custom-table th {
+     background-color: #333;
+     color: #0f9987;
+     text-transform: uppercase;
+     font-weight: bold;
+}
+
+.custom-table td {
+     color: #fff;
+     font-size: 0.9rem;
+}
+
+.custom-table tbody tr:hover {
+     background-color: #444;
+}
+
+.transparent-card {
+     background-color: rgba(255, 255, 255, 0.1);
+     border-radius: 15px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+     backdrop-filter: blur(10px);
+     max-width: 900px;
+     margin: 0 auto;
+}
+
+.form-control {
+     border: none;
+     border-bottom: 2px solid #495057;
+     border-radius: 10px;
+     background: transparent;
+     color: #ecf0f1;
+     padding: 12px;
+     font-size: 1.1rem;
+}
+
+.form-control::placeholder {
+     color: #ffffff;
+     font-weight: bold;
+     font-size: 1.1rem;
+}
+
+.form-control:focus {
+     outline: none;
+     box-shadow: none;
+     border: 2px solid #0f9987;
+}
+
+.btn-primary:hover {
+     background-color: #0d7a6b;
+     border-color: #0d7a6b;
+}
+
+
+
+/* Card styling */
+/* .transparent-card { */
+     /* background-color: rgba(255, 255, 255, 0.1);
+     border-radius: 15px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+     backdrop-filter: blur(10px);
+     max-width: 600px;
+     margin: 0 auto;
+     padding: 20px;
+} */
+
+/* Heading styling */
+.transparent-card h4 {
+     color: #61dafb;
+     font-weight: bold;
+}
+
+/* Vehicle list styling */
+.vehicle {
+     padding: 1rem;
+     border-bottom: 1px solid #495057;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+}
+
+.vehicle:last-child {
+     border-bottom: none;
+}
+
+.vehicle strong {
+     color: #0f9987;
+}
+
+.vehicle p {
+     margin: 0;
+     color: #ecf0f1;
+}
+
+/* issue ticket styling */
+.custom-container {
+     background: linear-gradient(145deg, #343a40, rgba(255, 255, 255, 0.1));
+     border-radius: 15px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+     max-width: 60rem;
+     margin: 0 auto;
+     padding: 30px;
+     transition: background-color 0.3s ease;
+}
+
+@media (max-width: 767px) {
+     .sidebar {
+          display: none;
+     }
+
+     .sidebar.active {
+          display: block;
+     }
+
+     .sidebar.collapsed {
+          width: 60px;
+     }
+
+     .sidebar .nav-link {
+          text-align: center;
+          padding: 10px 0;
+     }
+
+     .sidebar .nav-link span {
+          font-size: 2rem;
+     }
+}

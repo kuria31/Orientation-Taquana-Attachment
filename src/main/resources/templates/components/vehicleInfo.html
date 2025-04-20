@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+
+<body>
+     <!-- fragments/info.html -->
+     <div th:fragment="info(label, value)" class="card mb-3 shadow-sm w-100">
+          <div class="card-body">
+               <p class="card-title mb-1 fw-bold" th:text="${label}">Label</p>
+               <span class="card-text" th:if="${value}" th:text="${value}">Value</span>
+          </div>
+     </div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+.container {
+     max-width: 1000px;
+     margin: auto;
+     padding: 2rem;
+}
+
+h4 {
+     font-size: 1.5rem;
+     margin-bottom: 1.5rem;
+     color: #61dafb;
+     /* Light blue for headers */
+}
+
+.transparent-table {
+     background-color: transparent;
+     /* Transparent background for the table */
+     border-collapse: collapse;
+     /* Ensures borders don't double up */
+}
+
+.transparent-table th,
+.transparent-table td {
+     border: 1px solid #444;
+     /* Visible borders for rows and cells */
+     padding: 12px;
+}
+
+.transparent-table thead {
+     background: #333;
+     /* Dark background for table headers */
+}
+
+.transparent-table th {
+     color: #61dafb;
+     /* Blue text for headers */
+}
+
+.transparent-table tbody tr {
+     background-color: transparent;
+     /* Transparent background for rows */
+}
+
+.transparent-table tbody tr:hover {
+     background-color: #444;
+     /* Slightly darker background on hover */
+}
+
+.alert {
+     font-size: 1.1rem;
+     padding: 1rem;
+     border-radius: 10px;
+}
+
+.alert-danger {
+     background-color: #ff4e4e;
+     color: #fff;
+}
+
+.alert-success {
+     background-color: #4caf50;
+     color: #fff;
+}
+
+/* Add responsiveness */
+@media (max-width: 767px) {
+     h4 {
+          font-size: 1.3rem;
+     }
+
+     .transparent-table th,
+     .transparent-table td {
+          font-size: 0.9rem;
+     }
+}
