@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+
+<body>
+     <div th:fragment="trackingSection(vehiclesInQueue, vehiclesTravelling)" id="trackingSection">
+          <div class="displayQueuedVehicles">
+               <h4>Vehicles in queue</h4>
+               <table>
+                    <thead>
+                         <tr>
+                              <th>Plate Number</th>
+                              <th>Capacity</th>
+                         </tr>
+                    </thead>
+                    <tbody>
+                         <tr th:each="vehicle : ${vehiclesInQueue}">
+                              <td th:text="${vehicle.plateNumber}"></td>
+                              <td th:text="${vehicle.capacity}"></td>
+                         </tr>
+                    </tbody>
+               </table>
+          </div>
+          <div class="displayTravellingVehicles">
+               <h4>Vehicles in Travelling</h4>
+               <div th:each="vehicle : ${vehiclesTravelling}" class="vehicle">
+                   <div class="vehicle-header">
+                       <strong>Plate Number:</strong>
+                       <p th:text="${vehicle.plateNumber}">Plate number</p>
+                   </div>
+           
+           
+                   <img src="/logo.png" alt="car_logo" width="50px">
+           
+                   <!-- <div class="passengers">
+                       <h5>Passengers</h5>
+                       <div class="details" th:each="passenger : ${vehicle.passengers}">
+                           <p><strong>Name:</strong> <span th:text="${passenger.name}">Passenger name</span></p>
+                           <p><strong>Seat Number:</strong> <span th:text="${passenger.seatNumber}">Passenger seat number</span></p>
+                       </div>
+                   </div> -->
+               </div>
+           </div>
+           
+     </div>
+</body>
+
+</html>

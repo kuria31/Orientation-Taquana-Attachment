@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+</head>
+
+<body>
+     <div th:fragment="ticketSection" id="ticketSection">
+          <div class="frontVehicleDetails" style="display: flex; justify-content: space-around;">
+               <div th:replace="~{components/vehicleInfo :: info('Number Plate:',  ${vehicle.plateNumber})}"></div>
+               <div th:replace="~{components/vehicleInfo :: info('Capacity:',  ${vehicle.capacity})}"></div>
+               <div th:replace="~{components/vehicleInfo :: info('Remaining Seats:',  ${vehicle.remainingSeats})}">
+               </div>
+          </div>
+
+          <div class="toggleRegistering">
+               <div class="toggleBtn">
+                    <button onclick="toggleSections('issueTicket', 'registerVehicle' )">Issue Ticket</button>
+                    <button onclick="toggleSections('registerVehicle', 'issueTicket' )">Register Vehicle</button>
+               </div>
+
+               <div id="issueTicket" style="display: block;" th:include="~{fragments/issueTicket :: issueTicket}">
+               </div>
+
+               <div id="registerVehicle" style="display: none;"
+                    th:include="~{fragments/registerVehicle :: registerVehicle}">
+
+               </div>
+          </div>
+     </div>
+</body>
+
+</html>

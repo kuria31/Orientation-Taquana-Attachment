@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Vehicles in Queue</title>
+</head>
+
+<body>
+
+     <div class="container">
+
+          <div th:fragment="vehiclesInQueue" class="container-fluid text-light">
+               <h4 class="headings mb-4">Vehicles in Queue</h4> <!-- Updated heading color -->
+
+               <!-- Display messages -->
+               <p th:if="${error}" class="alert alert-danger" th:text="${error}"></p>
+               <p th:if="${success}" class="alert alert-success" th:text="${success}"></p>
+
+               <table
+                    class="table table-dark table-striped table-bordered table-hover table-sm text-center custom-table">
+                    <thead>
+                         <tr>
+                              <th>Plate Number</th>
+                              <th>Capacity</th>
+                              <th>Queue Time</th>
+                         </tr>
+                    </thead>
+                    <tbody>
+                         <tr th:each="vehicle : ${vehiclesInQueue}">
+                              <td th:text="${vehicle.plateNumber}"></td>
+                              <td th:text="${vehicle.capacity}"></td>
+                              <td th:text="${vehicle.arrivalTime}"></td>
+                         </tr>
+                    </tbody>
+               </table>
+          </div>
+     </div>
+</body>
+
+</html>
