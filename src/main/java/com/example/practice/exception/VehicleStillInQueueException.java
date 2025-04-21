@@ -1,7 +1,10 @@
 package com.example.practice.exception;
 
-public class VehicleStillInQueueException extends RuntimeException{
-     public VehicleStillInQueueException (String message){
+/**
+ * Exception thrown when a vehicle is still in the queue and cannot be processed.
+ */
+public class VehicleStillInQueueException extends RuntimeException {
+     public VehicleStillInQueueException(String message) {
           super(message);
      }
 }

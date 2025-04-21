@@ -15,24 +15,36 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Entity representing a Passenger.
+ * A passenger is associated with a vehicle and has a seat number.
+ */
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 public class Passanger {
+
      @Id
      @GeneratedValue(strategy = GenerationType.IDENTITY)
-     private Long id;
-     private String name;
-     private int seatNumber;
+     private Long id; // Unique identifier for the passenger
+
+     private String name; // Name of the passenger
+
+     private int seatNumber; // Seat number assigned to the passenger
+
+
+     private LocalTime arrivalTime;
 
      @JsonBackReference
      @ManyToOne
      @JoinColumn(name = "vehicle_id", nullable = false)
-     private Vehicle vehicle;
+     private Vehicle vehicle; // The vehicle associated with the passenger
 
-     @Transient
-     public LocalTime getArrivalTime() {
-          return LocalTime.now();
-     }
+     /**
+      * Gets the arrival time of the passenger.
+      *
+      * @return The current time as the arrival time.
+      */
+
 }

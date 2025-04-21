@@ -56,3 +56,21 @@ function togglePassengers(button) {
         button.textContent = "See More"; // Update button text
     }
 }
+// function sendPutRequest (plateNumber, capacity)  {
+//     fetch(`/api/queue/addToQueue`), {
+//         method: 'PUT',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({
+//             plateNumber: plateNumber,
+//             capacity: capacity
+//         })
+//     }.then(response => {
+//         if (response.ok) {
+//             alert("Vehicle marked as arrived!");
+//         } else {
+//             alert("Something went wrong.");
+//         }
+//     });
+// }

@@ -1,5 +1,6 @@
 package com.example.practice.service.impl;
 
+import java.time.LocalTime;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -15,11 +16,12 @@ import com.example.practice.service.PassangerService;
 import jakarta.transaction.Transactional;
 
 @Service
-public class PassangerServiceImpl implements PassangerService{
+public class PassangerServiceImpl implements PassangerService {
      private final PassangerRepository passangerRepository;
      private final VehicleRepository vehicleRepository;
 
-     PassangerServiceImpl(PassangerRepository passangerRepository, VehicleRepository vehicleRepository){
+     // Constructor to initialize the repositories
+     PassangerServiceImpl(PassangerRepository passangerRepository, VehicleRepository vehicleRepository) {
           this.passangerRepository = passangerRepository;
           this.vehicleRepository = vehicleRepository;
      }
@@ -27,30 +29,39 @@ public class PassangerServiceImpl implements PassangerService{
      @Override
      @Transactional
      public Passanger addPassangerToQueue(String name) {
+          /*Fetch the list of vehicles currently in the queue (through the use of timestaps) 
+          The vehicle that arrived first will have the earliest timestamp
+          */
           List<Vehicle> vehicleQueue = vehicleRepository.findQueuedVehiclesUsingTimestanps();
 
-          if (vehicleQueue.isEmpty()){
+          // If no vehicles are available, throw an exception
+          if (vehicleQueue.isEmpty()) {
                throw new NoVehiclesException("No vehicles available");
           }
+
+          // Iterate through the vehicles in the queue
           for (Vehicle vehicle : vehicleQueue) {
-               if(vehicle.hasAvailableSeats()){
+               // Check if the vehicle has available seats 
+               if (vehicle.hasAvailableSeats()) {
+                    // Create a new passenger and update the passanger and the vehicle
                     Passanger passanger = new Passanger();
-                    
-
                     passanger.setName(name);
-                    passanger.setSeatNumber(vehicle.getPassangers().size() + 1);
-                    passanger.setVehicle(vehicle);
-                    vehicle.getPassangers().add(passanger);
-                    
+                    passanger.setSeatNumber(vehicle.getPassangers().size() + 1); // Assign seat number
+                    passanger.setVehicle(vehicle); // Associate the passenger with the vehicle
+                    vehicle.getPassangers().add(passanger); // Add the passenger to the vehicle's list
+                    passanger.setArrivalTime(LocalTime.now());
 
-                    if(!vehicle.hasAvailableSeats()){
+                    // If the vehicle is now full, mark it as departed(it is dequeued)
+                    if (!vehicle.hasAvailableSeats()) {
                          vehicle.setDeparted(true);
                     }
-                    return passangerRepository.save(passanger);
 
+                    // Save the passenger to the repository and return it
+                    return passangerRepository.save(passanger);
                }
-               
           }
+
+          // If no vehicle with available seats is found, throw an exception
           throw new NoAvailableSeatsException("No vehicle available with seats");
      }
 }

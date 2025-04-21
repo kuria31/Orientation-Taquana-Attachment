@@ -28,8 +28,17 @@
                               </div>
                               <img src="/logo.png" alt="car_logo" width="50px">
                          </div>
-                         <button class="btn btn-link mt-2" style="color: #1abc9c;" onclick="togglePassengers(this)">See
-                              More</button>
+
+                              <!-- <button onclick="sendPutRequest('${vehicle.plateNumber}','${vehicle.capacity}')",
+                              style="background-color: #8ef09f;
+                                     padding: 0.5rem 1rem; border-radius: 5px; color: black; text-decoration: none;">
+                              Arrived Destination
+                           </button> -->
+
+                              <button class="btn btn-link mt-2" style="color: #1abc9c;"
+                                   onclick="togglePassengers(this)">See
+                                   More</button>
+
                          <div class="passenger-list mt-3" style="display: none;">
                               <h5
                                    style="font-family: 'Segoe UI', sans-serif; font-size: 1.3rem; margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; color: #61dafb;">
@@ -53,12 +62,12 @@
                                         </div>
 
                                         <div style="margin-top: 0.5rem; color: #1abc9c;">Arrival Time:
-                                             <span style="color: #ccc;" th:text="${passanger.arrivalTime}">Arrival Time</span>
+                                             <span style="color: #ccc;" th:text="${passanger.arrivalTime}">Arrival
+                                                  Time</span>
                                         </div>
                                    </li>
                               </ul>
                          </div>
-
                     </div>
                </div>
           </div>
