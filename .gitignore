@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Ignore vscode file
+compose.yaml
+interview.session.sql
+mvnw.cmd
+mvnw
